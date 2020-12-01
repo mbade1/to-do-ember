@@ -7,6 +7,21 @@
   </head>
   <body>
     <script type="text/x-handlebars" data-template-name="todos">
+
+            <section id="todoapp">
+              {{! ... additional lines truncated for brevity ... }}
+              <ul id="todo-list">
+                {{#each todo in model}}
+                  <li>
+                    <input type="checkbox" class="toggle">
+                    <label>{{todo.title}}</label><button class="destroy"></button>
+                  </li>
+                  <li {{bind-attr class="todo.isCompleted:completed"}}>
+                    <input type="checkbox" class="toggle">
+                    <label>{{todo.title}}</label><button class="destroy"></button>
+                  </li>
+                {{/each}}
+              </ul>
               <h1>todos</h1>
       {{input
         type="text"
@@ -15,29 +30,14 @@
         value=newTitle
         action="createTodo"}}
 
-              <ul id="todo-list">
-                  {{#each todo in model}}
-                    <li>
-                      <input type="checkbox" class="toggle">
-                      <label>{{todo.title}}</label><button class="destroy"></button>
-                    </li>
-                  {{/each}}
-
-                <li {{bind-attr class="todo.isCompleted:completed"}}>
-                  <input type="checkbox" class="toggle">
-                  <label>{{todo.title}}</label><button class="destroy"></button>
-                </li>
-              </ul>
-
-
-            <section id="todoapp">
-              {{! ... additional lines truncated for brevity ... }}
             </section>
 
             <footer id="info">
               <p>Double-click to edit a todo</p>
             </footer>
     </script>
+
+    <!-- ... Ember.js and other JavaScript dependencies ... -->
 
     <script src="js/libs/jquery-1.11.2.min.js"></script>
     <script src="js/libs/handlebars-v1.3.0.js"></script>
@@ -46,5 +46,6 @@
     <script src="js/application.js"></script>
     <script src="js/router.js"></script>
     <script src="js/models/todo.js"></script>
+    <script src="js/controllers/todos_controller.js"></script>
   </body>
 </html>
