@@ -5,4 +5,6 @@ window.Todos = Ember.Application.create();
 //Adapters are resp for comms with a source of data for the app.
 //Usually this a Web service API, but for now we use an adapter designed to laod fixture data:
 
-Todos.ApplicationAdapter = DS.FixtureAdapter.extend();
+Todos.ApplicationAdapter = DS.LSAdapter.extend({
+  namespace: "todos-emberjs",
+});
